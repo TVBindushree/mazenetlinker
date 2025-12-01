@@ -1,30 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Clothing Store</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stylish Clothing — Home</title>
 
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THQK7645');
-    </script>
-    <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQK7645');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Stylish<span>Cloth</span></a>
 
-    <h1>Welcome to My Clothing Store</h1>
-    <p>Explore our latest fashion collections!</p>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link current">Home</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
 
-    <h2>Products</h2>
-    <div>
-        <h3>Pr
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="navToggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Fresh styles. Everyday comfort.</h1>
+        <p class="lead">Small collection — big vibes. Shop our featured picks below.</p>
+        <a class="btn-primary" href="#products">Shop Featured</a>
+      </div>
+    </section>
+
+    <section id="products" class="container products-grid" aria-label="Featured products">
+      <!-- Product 1 -->
+      <article class="card" data-index="0">
+        <button class="image-button" data-src="https://images.unsplash.com/photo-1520975911012-6e7b20da0d9a?w=1400&q=80&auto=format&fit=crop"
+                data-caption="Stylish T-shirt — Lightweight cotton, perfect for daily wear.">
+          <img src="https://images.unsplash.com/photo-1520975911012-6e7b20da0d9a?w=900&q=60&auto=format&fit=crop&s=1" alt="Stylish T-shirt">
+        </button>
+        <div class="card-body">
+          <h3>Stylish T-shirt</h3>
+          <p class="price">₹499</p>
+          <p class="muted">Lightweight cotton, everyday essential.</p>
+          <a class="btn-ghost" href="contact.html">Enquire</a>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="card" data-index="1">
+        <button class="image-button" data-src="https://images.unsplash.com/photo-1484981184820-2e84ea0b1f9f?w=1400&q=80&auto=format&fit=crop"
+                data-caption="Classic Jeans — Comfort fit with a modern cut.">
+          <img src="https://images.unsplash.com/photo-1484981184820-2e84ea0b1f9f?w=900&q=60&auto=format&fit=crop&s=1" alt="Classic Jeans">
+        </button>
+        <div class="card-body">
+          <h3>Classic Jeans</h3>
+          <p class="price">₹999</p>
+          <p class="muted">Comfort fit with a modern cut.</p>
+          <a class="btn-ghost" href="contact.html">Enquire</a>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="card" data-index="2">
+        <button class="image-button" data-src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=1400&q=80&auto=format&fit=crop"
+                data-caption="Trendy Jacket — Warm and stylish for cool evenings.">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=900&q=60&auto=format&fit=crop&s=1" alt="Trendy Jacket">
+        </button>
+        <div class="card-body">
+          <h3>Trendy Jacket</h3>
+          <p class="price">₹1499</p>
+          <p class="muted">Warm and stylish for cool evenings.</p>
+          <a class="btn-ghost" href="contact.html">Enq
