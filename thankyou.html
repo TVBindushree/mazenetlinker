@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You — Stylish Clothing</title>
 
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THQK7645');
-    </script>
-    <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQK7645');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <header class="site-header" id="siteHeaderThanks" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Stylish<span>Cloth</span></a>
 
-    <h1>Thank You!</h1>
-    <p>Your message has been received. We will get back to you soon.</p>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
 
-    <a href="index.html">Go Back to Home</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="navToggleThanks">☰</button>
+    </div>
+  </header>
 
+  <main class="container thankyou">
+    <div class="thank-card">
+      <h2>Thank you!</h2>
+      <p id="greeting">We've received your message.</p>
+      <p class="muted">We'll get back to you shortly.</p>
+      <a class="btn-primary" href="index.html">Back to Home</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year3"></span> StylishCloth</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year3').textContent = new Date().getFullYear();
+
+    // header behavior
+    const navToggleThanks = document.getElementById('navToggleThanks');
+    navToggleThanks.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      navToggleThanks.setAttribute('aria-expanded', String(open));
+    });
+
+    const headerThanks = document.getElementById('siteHeaderThanks');
+    const SCROLL_LIMIT = 60;
+    function onScrollHeaderThanks() {
+      if (window.scrollY > SCROLL_LIMIT) headerThanks.classList.add('scrolled');
+      else headerThanks.classList.remove('scrolled');
+    }
+    onScrollHeaderThanks();
+    window.addEventListener('scroll', onScrollHeaderThanks, {passive:true});
+
+    // Show the name from query params (name=...), safely decode it
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    if (name) {
+      const safe = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      document.getElementById('greeting').textContent = `Thanks, ${safe}! We've received your message.`;
+    }
+  </script>
 </body>
 </html>
