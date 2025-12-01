@@ -1,43 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us — Stylish Clothing</title>
 
-     <!-- Google Tag Manager -->
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THQK7645');
-    </script>
-    <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THQK7645');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQK7645"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <header class="site-header" id="siteHeaderContact" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Stylish<span>Cloth</span></a>
 
-    <h1>Contact Us</h1>
-    <form action="thankyou.html" method="GET">
-        <label>Name:</label><br>
-        <input type="text" name="name" required><br><br>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="contact.html" class="nav-link current">Contact</a>
+      </nav>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="navToggleContact">☰</button>
+    </div>
+  </header>
 
-        <label>Message:</label><br>
-        <textarea name="message" required></textarea><br><br>
+  <main class="container contact-page">
+    <section class="contact-card">
+      <h2>Get in touch</h2>
+      <p class="muted">Fill the form below — we'll reply within 24 hours.</p>
 
-        <button type="submit">Submit</button>
-    </form>
+      <!-- The form submits to thankyou.html using GET so thankyou page can show the name -->
+      <form id="contactForm" action="thankyou.html" method="GET" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required minlength="2" />
 
-    <br>
-    <a href="index.html">Home</a>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
 
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="How can we help?" required minlength="10"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Submit</button>
+          <button type="reset" class="btn-ghost">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> StylishCloth</p>
+    </div>
+  </footer>
+
+  <script>
+    // header behavior (shared logic)
+    document.getElementById('year2').textContent = new Date().getFullYear();
+
+    const navToggleContact = document.getElementById('navToggleContact');
+    navToggleContact.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      navToggleContact.setAttribute('aria-expanded', String(open));
+    });
+
+    const headerContact = document.getElementById('siteHeaderContact');
+    const SCROLL_LIMIT = 60;
+    function onScrollHeaderContact() {
+      if (window.scrollY > SCROLL_LIMIT) headerContact.classList.add('scrolled');
+      else headerContact.classList.remove('scrolled');
+    }
+    onScrollHeaderContact();
+    window.addEventListener('scroll', onScrollHeaderContact, {passive:true});
+
+    // simple form validity hook
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+      }
+      // otherwise let GET submit to thankyou.html
+    });
+  </script>
 </body>
 </html>
